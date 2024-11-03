@@ -1,15 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test-task-Glivera-team</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>goit-js-hw-12</title>
-  <link rel="stylesheet" href="./css/styles.css">
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-<body>
-  <script type="module" src="./main.js"></script>
-</body>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
 
+  <body>
+    <div class="cont-app">
+      <section>
+        <!-- sidebar -->
+        <aside class="sidebar">
+          <div>
+            <h2 class="sidebar-title">Dashboard</h2>
+            <ul class="sidebar-list">
+              <li>
+                <button class="sidebar-btn" data-content="dashboard">
+                  Dashboard
+                </button>
+              </li>
+              <li>
+                <button class="sidebar-btn" data-content="product">
+                  Product
+                </button>
+              </li>
+              <li>
+                <button class="sidebar-btn" data-content="customers">
+                  Customers
+                </button>
+              </li>
+              <li>
+                <button class="sidebar-btn" data-content="income">
+                  Income
+                </button>
+              </li>
+              <li>
+                <button class="sidebar-btn" data-content="promote">
+                  Promote
+                </button>
+              </li>
+              <li>
+                <button class="sidebar-btn" data-content="help">Help</button>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <div class="cont-view">
+        <header class="header">
+          <h2 class="header-title">Hello Evano</h2>
+        </header>
+        <main>
+          <section class="content" id="dashboard">
+            Welcome to the Dashboard!
+            <!-- <h2>Welcome to the Dashboard!</h2> -->
+          </section>
+          <section class="content" id="product">
+            Product information goes here.
+          </section>
+          <section class="content" id="customers">All Customers</section>
+          <section class="content" id="income">
+            View income statistics here.
+          </section>
+          <section class="content" id="promote">
+            Promote your products here.
+          </section>
+          <section class="content" id="help">
+            Help and support information here.
+          </section>
+        </main>
+      </div>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
 </html>
