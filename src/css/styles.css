@@ -38,3 +38,150 @@ button {
 }
 
 /* ===================Standard Style Reset====================== */
+
+.cont-app {
+  display: flex;
+}
+.sidebar {
+  width: 330px;
+  height: 1198px;
+
+  box-shadow: 0 10px 60px 0 rgba(226, 236, 249, 0.5);
+  background: #fff;
+}
+.sidebar-title {
+  padding: 36px 0 53px 30px;
+}
+
+.sidebar-list {
+  padding-left: 42px;
+}
+
+.sidebar-li {
+  margin-bottom: 18px;
+}
+
+.sidebar-li:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar-btn {
+  padding: 11px 9px 11px 12px;
+  border-radius: 8px;
+  width: 269px;
+  height: 46px;
+}
+
+.cont-view {
+}
+.header {
+}
+.header-title {
+  font-weight: 500;
+  font-size: 24px;
+  color: #000;
+  padding: 41px 47px 51px;
+}
+
+.main-wind {
+  width: 968px;
+  height: 812px;
+  margin-left: 47px;
+  padding: 30px 40px 38px;
+  border-radius: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 60px 0 rgba(226, 236, 249, 0.5);
+}
+
+.content {
+  display: none;
+}
+
+.content.active {
+  display: block;
+}
+
+.main-wind-title {
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.active-memb {
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: #16c098;
+  margin-bottom: 40px;
+}
+
+.customer-params-title {
+}
+
+.customer-info span {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: #292d32;
+}
+
+.customer-info-name {
+}
+.customer-info-company {
+}
+.customer-info-phoneNumder {
+}
+.customer-info-email {
+}
+.customer-info-country {
+}
+.customer-info-status {
+}
+
+.customer-params-title,
+.custom-info li {
+  display: grid;
+  grid-template-columns: 172px 131px 156px 207px 152px 1fr;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; */
+  align-items: center;
+}
+
+.customer-params-title span {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: #b5b7c0;
+}
+
+.customer-params-title {
+  margin-bottom: 14px;
+}
+
+.divider {
+  border: 1px solid #eee;
+  /* width: 968px; */
+  width: auto;
+  height: 0;
+  margin-bottom: 20px;
+}
+
+.customer-name {
+  /* margin-right: 57px; */
+}
+.company {
+  /* margin-right: 61px; */
+  /* padding-left: 210px; */
+}
+.phone-number {
+  /* margin-right: 52px; */
+}
+.email {
+  /* margin-right: 168px; */
+}
+.country {
+  /* margin-right: 96px; */
+}
+.status {
+}

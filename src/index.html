@@ -30,32 +30,32 @@
           <div>
             <h2 class="sidebar-title">Dashboard</h2>
             <ul class="sidebar-list">
-              <li>
+              <li class="sidebar-li">
                 <button class="sidebar-btn" data-content="dashboard">
                   Dashboard
                 </button>
               </li>
-              <li>
+              <li class="sidebar-li">
                 <button class="sidebar-btn" data-content="product">
                   Product
                 </button>
               </li>
-              <li>
+              <li class="sidebar-li">
                 <button class="sidebar-btn" data-content="customers">
                   Customers
                 </button>
               </li>
-              <li>
+              <li class="sidebar-li">
                 <button class="sidebar-btn" data-content="income">
                   Income
                 </button>
               </li>
-              <li>
+              <li class="sidebar-li">
                 <button class="sidebar-btn" data-content="promote">
                   Promote
                 </button>
               </li>
-              <li>
+              <li class="sidebar-li">
                 <button class="sidebar-btn" data-content="help">Help</button>
               </li>
             </ul>
@@ -67,23 +67,36 @@
         <header class="header">
           <h2 class="header-title">Hello Evano</h2>
         </header>
-        <main>
+
+        <main class="main-wind">
           <section class="content" id="dashboard">
-            Welcome to the Dashboard!
-            <!-- <h2>Welcome to the Dashboard!</h2> -->
+            <h3 class="main-wind-title">Welcome to the Dashboard!</h3>
           </section>
           <section class="content" id="product">
-            Product information goes here.
+            <h3 class="main-wind-title">Product information.</h3>
           </section>
-          <section class="content" id="customers">All Customers</section>
+          <section class="content" id="customers">
+            <h3 class="main-wind-title">All Customers</h3>
+            <p class="active-memb">Active Members</p>
+            <div class="customer-params-title">
+              <span class="customer-name">Customer Name</span>
+              <span class="company">Company</span>
+              <span class="phone-number">Phone Number</span>
+              <span class="email">Email</span>
+              <span class="country">Country</span>
+              <span class="status">Status</span>
+            </div>
+            <div class="divider"></div>
+            <ul class="custom-info"></ul>
+          </section>
           <section class="content" id="income">
-            View income statistics here.
+            <h3 class="main-wind-title">View income statistics here.</h3>
           </section>
           <section class="content" id="promote">
-            Promote your products here.
+            <h3 class="main-wind-title">Promote your products here.</h3>
           </section>
           <section class="content" id="help">
-            Help and support information here.
+            <h3 class="main-wind-title">Help and support information here.</h3>
           </section>
         </main>
       </div>

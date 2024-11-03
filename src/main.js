@@ -1,9 +1,12 @@
+import { objCustomer } from './js/api.js';
+import { renderCustomer } from './js/render-functions.js';
+
 const body = document.querySelector('body');
 
 const sidebarList = document.querySelector('.sidebar-list');
 const sidebarButtons = document.querySelectorAll('.sidebar-btn');
 const contents = document.querySelectorAll('.content');
-console.log(sidebarButtons);
+// console.log(sidebarButtons);
 
 sidebarButtons.forEach(sidebarButton => {
   sidebarButton.addEventListener('click', () => {
@@ -15,3 +18,9 @@ sidebarButtons.forEach(sidebarButton => {
     document.getElementById(targetContent).classList.add('active');
   });
 });
+
+const customersList = document.querySelector('.custom-info');
+const customerHtml = renderCustomer(objCustomer);
+console.log(customerHtml);
+
+customersList.insertAdjacentHTML('beforeend', customerHtml);
