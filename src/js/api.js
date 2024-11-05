@@ -25,15 +25,15 @@ const lastNames = [
 ];
 
 const companies = [
-  'Feacebook',
   'Yahoo',
   'Microsoft',
   'Google',
   'Tesla',
   'Adobe',
   'Foxtrot',
-  'COMFY',
-  'ROZETKA',
+  'Comfy',
+  'Feacebook',
+  'Rozetca',
   'Adidas',
 ];
 
@@ -75,20 +75,20 @@ const randomElem = arr => {
   return arr[randomIndex];
 };
 
-const createCustomer = () => {
-  let name = randomElem(names);
+export const createCustomer = () => {
+  // let name = randomElem(names);
   let lastName = randomElem(lastNames);
   let company = randomElem(companies);
   let phoneNumder = `${randomElem(operatorCode)} 555-${randomElem(
     num
   )}${randomElem(num)}${randomElem(num)}${randomElem(num)}`;
   let country = randomElem(countries);
-  let email = `${name.toLowerCase()}@${company.toLowerCase()}.com`;
+  let email = `@${company.toLowerCase()}.com`;
   let status = randomElem(statuses);
 
   return {
     id: Date.now(),
-    name,
+    // name,
     lastName,
     company,
     phoneNumder,
@@ -98,5 +98,5 @@ const createCustomer = () => {
   };
 };
 
-export const objCustomer = createCustomer();
+// export const objCustomer = createCustomer();
 // ===============================================================

@@ -42,6 +42,7 @@ button {
 .cont-app {
   display: flex;
 }
+
 .sidebar {
   width: 330px;
   height: 1198px;
@@ -49,6 +50,7 @@ button {
   box-shadow: 0 10px 60px 0 rgba(226, 236, 249, 0.5);
   background: #fff;
 }
+
 .sidebar-title {
   padding: 36px 0 53px 30px;
 }
@@ -72,10 +74,10 @@ button {
   height: 46px;
 }
 
-.cont-view {
-}
-.header {
-}
+.cont-view {}
+
+.header {}
+
 .header-title {
   font-weight: 500;
   font-size: 24px;
@@ -117,8 +119,7 @@ button {
   margin-bottom: 40px;
 }
 
-.customer-params-title {
-}
+.customer-params-title {}
 
 .customer-info span {
   font-weight: 500;
@@ -127,25 +128,26 @@ button {
   color: #292d32;
 }
 
-.customer-info-name {
-}
-.customer-info-company {
-}
-.customer-info-phoneNumder {
-}
-.customer-info-email {
-}
-.customer-info-country {
-}
+.customer-info-name {}
+
+.customer-info-company {}
+
+.customer-info-phoneNumder {}
+
+.customer-info-email {}
+
+.customer-info-country {}
+
 .customer-info-status {
+  margin-bottom: 20px;
 }
 
 .customer-params-title,
 .custom-info li {
   display: grid;
   grid-template-columns: 172px 131px 156px 207px 152px 1fr;
-  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; */
-  align-items: center;
+  /* align-items: center; */
+  margin-bottom: 20px;
 }
 
 .customer-params-title span {
@@ -164,24 +166,33 @@ button {
   /* width: 968px; */
   width: auto;
   height: 0;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
+
+.customer-item {
+  border-bottom: 1px solid #eee;
+}
+
 
 .customer-name {
   /* margin-right: 57px; */
 }
+
 .company {
   /* margin-right: 61px; */
   /* padding-left: 210px; */
 }
+
 .phone-number {
   /* margin-right: 52px; */
 }
+
 .email {
   /* margin-right: 168px; */
 }
+
 .country {
   /* margin-right: 96px; */
 }
-.status {
-}
+
+.status {}

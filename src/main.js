@@ -1,12 +1,23 @@
-import { objCustomer } from './js/api.js';
+import { createCustomer } from './js/api.js';
+import { CustomServer } from './js/pixabay-api.js';
 import { renderCustomer } from './js/render-functions.js';
+
+const nameCustom = new CustomServer();
 
 const body = document.querySelector('body');
 
 const sidebarList = document.querySelector('.sidebar-list');
 const sidebarButtons = document.querySelectorAll('.sidebar-btn');
 const contents = document.querySelectorAll('.content');
-// console.log(sidebarButtons);
+const customersList = document.querySelector('.custom-info');
+// ==========================================================================
+
+// const customBtn = document.querySelector('.custom-btn');
+const customBtn = document.getElementById('customers');
+// customBtn.addEventListener('click', addCustomers);
+
+let page = 1;
+let maxPages;
 
 sidebarButtons.forEach(sidebarButton => {
   sidebarButton.addEventListener('click', () => {
@@ -16,11 +27,29 @@ sidebarButtons.forEach(sidebarButton => {
     contents.forEach(content => content.classList.remove('active'));
 
     document.getElementById(targetContent).classList.add('active');
+
+    if (targetContent === 'customers') {
+      addCustomers();
+    }
   });
 });
 
-const customersList = document.querySelector('.custom-info');
-const customerHtml = renderCustomer(objCustomer);
-console.log(customerHtml);
+async function addCustomers() {
+  // e.preventDefault();
+  customersList.innerHTML = '';
 
-customersList.insertAdjacentHTML('beforeend', customerHtml);
+  try {
+    const data = await nameCustom.getCustomName(page);
+    maxPages = Math.ceil(data.totalHits / nameCustom.pageSize);
+    if (page >= maxPages) {
+      page = 1;
+    }
+    // console.log(data.totalHits);
+    const customerHtml = renderCustomer(data.hits, createCustomer);
+    customersList.insertAdjacentHTML('beforeend', customerHtml);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    page += 1;
+  }
+}
