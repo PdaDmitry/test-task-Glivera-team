@@ -1,7 +1,11 @@
 import { createCustomer } from './js/api.js';
 import { CustomServer } from './js/pixabay-api.js';
-import { renderBattons, renderCustomer } from './js/render-functions.js';
-// import { renderCustomer } from './js/render-functions.js';
+import {
+  renderBattons,
+  renderCustomer,
+  renderPaginationText,
+} from './js/render-functions.js';
+
 const nameCustom = new CustomServer();
 
 const body = document.querySelector('body');
@@ -14,11 +18,13 @@ const customersList = document.querySelector('.custom-info');
 // ==========================================================================
 const customBtn = document.getElementById('customers');
 
-// =============================pageButtonsCont=============================================
+// =============================pagination=============================================
+const paginationElemtText = document.querySelector('.pagination-text');
 const pageButtonsCont = document.querySelector('.page-buttons');
-const paginationElement = document.querySelector('.page-buttons');
+// const paginationElement = document.querySelector('.page-buttons');
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
+let paginText;
 
 let page = 1;
 let maxPages;
@@ -44,15 +50,16 @@ sidebarButtons.forEach(sidebarButton => {
 async function addCustomers(page) {
   customersList.innerHTML = '';
   try {
+    if (page > maxPages) {
+      page = 1;
+    }
     const data = await nameCustom.getCustomName(page);
     maxPages = Math.ceil(data.totalHits / nameCustom.pageSize);
 
-    if (page >= maxPages) {
-      page = 1;
-    }
     const customerHtml = renderCustomer(data.hits, createCustomer);
     customersList.insertAdjacentHTML('beforeend', customerHtml);
-
+    const paginationText = renderPaginationText(page);
+    paginationElemtText.innerHTML = paginationText;
     renderPagination();
   } catch (error) {
     console.log(error);
@@ -63,6 +70,7 @@ async function addCustomers(page) {
 
 async function renderPagination() {
   pageButtonsCont.innerHTML = '';
+
   const buttons = await renderBattons(page, maxPages);
 
   buttons.forEach(button => {
@@ -70,17 +78,21 @@ async function renderPagination() {
       let content = button.textContent;
 
       if (content === '>') {
-        if (page < maxPages) {
+        if (page < maxPages - 5) {
           page++;
           addCustomers(page);
+          renderPaginationText(page);
         }
       } else if (content === '<') {
         if (page > 1) {
           page--;
           addCustomers(page);
+          renderPaginationText(page);
         }
       } else if (content !== '...') {
         addCustomers(content);
+        renderPaginationText(content);
+        // renderBattons(content, maxPages);
       }
     });
     pageButtonsCont.appendChild(button);

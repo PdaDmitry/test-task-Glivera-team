@@ -25,6 +25,21 @@ export function renderCustomer(customers, customerHtml) {
   return item;
 }
 
+let currentPage;
+
+export function renderPaginationText(page) {
+  // if (page === 63) {
+  //   currentPage = page;
+  //   // console.log(page);
+  // }
+  // // console.log(currentPage);
+  // console.log(page);
+
+  return `<p clas='pagination-text' >Showing data ${page * 8 - 7} to ${
+    page * 8
+  } of  504 entries</p>`;
+}
+
 export async function renderBattons(page, maxPages) {
   let buttons = [];
 
@@ -38,18 +53,35 @@ export async function renderBattons(page, maxPages) {
   nextBtn.classList.add('next-btn');
 
   let ellipsisBtn = document.createElement('button');
-  ellipsisBtn.textContent = '...';
+  if (maxPages - 5 === page) {
+    ellipsisBtn.textContent = maxPages - 1;
+  } else {
+    ellipsisBtn.textContent = '...';
+  }
   ellipsisBtn.classList.add('page-btn');
 
   const lastBtn = document.createElement('button');
   lastBtn.textContent = maxPages;
   lastBtn.classList.add('page-btn');
 
-  for (let i = page; i <= page + 3; i++) {
-    const button = document.createElement('button');
-    button.textContent = i;
-    button.classList.add('page-btn');
-    buttons.push(button);
+  if (currentPage === maxPages) {
+    console.log(page, '---');
+
+    for (let i = maxPages; i > maxPages - 5; i--) {
+      const button = document.createElement('button');
+      button.textContent = i;
+      button.classList.add('page-btn');
+      buttons.push(button);
+    }
+  } else {
+    console.log(page, '+++');
+
+    for (let i = page; i <= page + 3; i++) {
+      const button = document.createElement('button');
+      button.textContent = i;
+      button.classList.add('page-btn');
+      buttons.push(button);
+    }
   }
 
   buttons.push(ellipsisBtn, lastBtn, nextBtn);

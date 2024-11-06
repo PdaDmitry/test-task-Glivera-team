@@ -146,9 +146,16 @@ button {
 .custom-info li {
   display: grid;
   grid-template-columns: 172px 131px 156px 207px 152px 1fr;
-  /* align-items: center; */
   margin-bottom: 20px;
 }
+
+.custom-info li:last-child {
+  margin-bottom: 30px;
+}
+
+.pagination {}
+
+.pagination-text {}
 
 .customer-params-title span {
   font-weight: 500;
