@@ -169,6 +169,16 @@ button {
   margin-bottom: 24px;
 }
 
+.pagination,
+.page-buttons {
+  display: flex;
+  gap: 14px;
+}
+
+.prev-btn {}
+
+.next-btn {}
+
 .customer-item {
   border-bottom: 1px solid #eee;
 }

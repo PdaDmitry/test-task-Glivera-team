@@ -1,7 +1,7 @@
 import { createCustomer } from './js/api.js';
 import { CustomServer } from './js/pixabay-api.js';
-import { renderCustomer } from './js/render-functions.js';
-
+import { renderBattons, renderCustomer } from './js/render-functions.js';
+// import { renderCustomer } from './js/render-functions.js';
 const nameCustom = new CustomServer();
 
 const body = document.querySelector('body');
@@ -10,14 +10,21 @@ const sidebarList = document.querySelector('.sidebar-list');
 const sidebarButtons = document.querySelectorAll('.sidebar-btn');
 const contents = document.querySelectorAll('.content');
 const customersList = document.querySelector('.custom-info');
-// ==========================================================================
 
-// const customBtn = document.querySelector('.custom-btn');
+// ==========================================================================
 const customBtn = document.getElementById('customers');
-// customBtn.addEventListener('click', addCustomers);
+
+// =============================pageButtonsCont=============================================
+const pageButtonsCont = document.querySelector('.page-buttons');
+const paginationElement = document.querySelector('.page-buttons');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
 
 let page = 1;
 let maxPages;
+// const visibleButtons = 4;
+let startPage = 3;
+let endPage = 3;
 
 sidebarButtons.forEach(sidebarButton => {
   sidebarButton.addEventListener('click', () => {
@@ -29,27 +36,53 @@ sidebarButtons.forEach(sidebarButton => {
     document.getElementById(targetContent).classList.add('active');
 
     if (targetContent === 'customers') {
-      addCustomers();
+      addCustomers(page);
     }
   });
 });
 
-async function addCustomers() {
-  // e.preventDefault();
+async function addCustomers(page) {
   customersList.innerHTML = '';
-
   try {
     const data = await nameCustom.getCustomName(page);
     maxPages = Math.ceil(data.totalHits / nameCustom.pageSize);
+
     if (page >= maxPages) {
       page = 1;
     }
-    // console.log(data.totalHits);
     const customerHtml = renderCustomer(data.hits, createCustomer);
     customersList.insertAdjacentHTML('beforeend', customerHtml);
+
+    renderPagination();
   } catch (error) {
     console.log(error);
   } finally {
     page += 1;
   }
+}
+
+async function renderPagination() {
+  pageButtonsCont.innerHTML = '';
+  const buttons = await renderBattons(page, maxPages);
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      let content = button.textContent;
+
+      if (content === '>') {
+        if (page < maxPages) {
+          page++;
+          addCustomers(page);
+        }
+      } else if (content === '<') {
+        if (page > 1) {
+          page--;
+          addCustomers(page);
+        }
+      } else if (content !== '...') {
+        addCustomers(content);
+      }
+    });
+    pageButtonsCont.appendChild(button);
+  });
 }
