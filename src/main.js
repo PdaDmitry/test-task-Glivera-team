@@ -24,13 +24,10 @@ const pageButtonsCont = document.querySelector('.page-buttons');
 // const paginationElement = document.querySelector('.page-buttons');
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
-let paginText;
+// let paginText;
 
 let page = 1;
 let maxPages;
-// const visibleButtons = 4;
-let startPage = 3;
-let endPage = 3;
 
 sidebarButtons.forEach(sidebarButton => {
   sidebarButton.addEventListener('click', () => {
@@ -90,9 +87,12 @@ async function renderPagination() {
           renderPaginationText(page);
         }
       } else if (content !== '...') {
-        addCustomers(content);
-        renderPaginationText(content);
-        // renderBattons(content, maxPages);
+        if (content === maxPages) {
+          page = content;
+        }
+
+        addCustomers(content); //!!!!!!!!!!!!!!!!!
+        renderPaginationText(content); //!!!!!!!!!!!!
       }
     });
     pageButtonsCont.appendChild(button);
