@@ -55,7 +55,7 @@ contents.forEach(section => {
   sidebar.classList.remove('display__none');
   sidebar.classList.add('sidebar');
   backButton.textContent = 'Back';
-  backButton.classList.add('back-button');
+  backButton.classList.add('back__button');
   section.prepend(backButton);
 
   backButton.addEventListener('click', () => {
